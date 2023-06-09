@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Static Template</title>
+    <script>
+      function onShowModal(query) {
+        document.querySelector(query).showModal();
+      }
+      function onShow(query) {
+        document.querySelector(query).show();
+      }
+      function onClose(query) {
+        document.querySelector(query).close();
+      }
+    </script>
   </head>
   <body>
-    <h1>This is a static template, there is no bundler or bundling involved!</h1>
+    <dialog id="test">
+      <button onclick="onClose('#test')">
+        close
+      </button>
+      <button onclick="onShowModal('#test2')">
+        onShowInnerModal
+      </button>
+      <button onclick="onShow('#test2')">
+        onShowInner
+      </button>
+      <div>test</div>
+    </dialog>
+
+    <dialog id="test2">
+      <button onclick="onClose('#test2')">
+        close
+      </button>
+      <div>test2</div>
+    </dialog>
+
+    <button onclick="onShowModal('#test')">
+      onShowModal
+    </button>
+    <button onclick="onShow('#test')">
+      onShow
+    </button>
   </body>
 </html>
